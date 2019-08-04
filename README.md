@@ -1,16 +1,6 @@
-To deploy ENS to a local ganache instance/aragon devchain:
+# ENS Aragon App
 
-Install dependencies:
-```
-$ npm install
-```
+Aragon app for a DAO to interact with the ENS.
 
-Run ganache in a separate terminal:
-```
-$ ganache-cli
-```
+Follow these [instructions to install the ENS protocol locally](https://github.com/empowerthedao/ens-aragon-app/tree/master/ens-protocol).
 
-Deploy contracts and execute basic usage:
-```
-$ truffle migrate
-```
