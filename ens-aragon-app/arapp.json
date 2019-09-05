@@ -4,6 +4,11 @@
       "name": "Set the agent",
       "id": "SET_AGENT_ROLE",
       "params": []
+    },
+    {
+      "name": "Set the reverse record",
+      "id": "SET_REVERSE_RECORD_ROLE",
+      "params": []
     }
   ],
   "environments": {

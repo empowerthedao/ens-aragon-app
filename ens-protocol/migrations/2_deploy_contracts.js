@@ -64,21 +64,21 @@ module.exports = async (deployer, network, accounts) => {
 
 
     // Register ENS name
-    currentBlockTime = (await web3.eth.getBlock('latest')).timestamp
-    const domainAllowedTime = (await hashRegistrar.getAllowedTime(namehash.hash(DOMAIN_NAME))).toNumber()
-    const domainAllowedIn = domainAllowedTime - currentBlockTime
-
-    await advanceTime(domainAllowedIn)
-
-    const commitment = await controller.makeCommitment(DOMAIN_NAME, subDomainOwner, SECRET)
-    await controller.commit(commitment, {from: subDomainOwner})
-
-    await advanceTime((await controller.minCommitmentAge()).toNumber())
-
-    await controller.register(DOMAIN_NAME, subDomainOwner, 28 * DAYS, SECRET, { value: 28 * DAYS + DOMAIN_PRICE_PER_SECOND, from: subDomainOwner})
-
+    // currentBlockTime = (await web3.eth.getBlock('latest')).timestamp
+    // const domainAllowedTime = (await hashRegistrar.getAllowedTime(namehash.hash(DOMAIN_NAME))).toNumber()
+    // const domainAllowedIn = domainAllowedTime - currentBlockTime
+    //
+    // await advanceTime(domainAllowedIn)
+    //
+    // const commitment = await controller.makeCommitment(DOMAIN_NAME, subDomainOwner, SECRET)
+    // await controller.commit(commitment, {from: subDomainOwner})
+    //
+    // await advanceTime((await controller.minCommitmentAge()).toNumber())
+    //
+    // await controller.register(DOMAIN_NAME, subDomainOwner, 28 * DAYS, SECRET, { value: 28 * DAYS + DOMAIN_PRICE_PER_SECOND, from: subDomainOwner})
+    //
     const domainName = DOMAIN_NAME + '.' + ETH_TLD
-    console.log(`${domainName} owner: ${await ens.owner(namehash.hash(domainName))}\nexpected owner: ${subDomainOwner}`)
+    // console.log(`${domainName} owner: ${await ens.owner(namehash.hash(domainName))}\nexpected owner: ${subDomainOwner}`)
 
 
     // Set reverse record

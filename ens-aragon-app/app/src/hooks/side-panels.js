@@ -14,6 +14,10 @@ export function useSidePanel() {
         CHANGE_AGENT: {
             id: 'CHANGE_AGENT',
             title: 'Change the Agent'
+        },
+        SET_REVERSE_RECORD: {
+            id: 'SET_REVERSE_RECORD',
+            title: 'Set the reverse record'
         }
     }
 
@@ -40,6 +44,7 @@ export function useSidePanel() {
 
     const openPanelActions = {
         changeAgent: () => requestOpen(sidePanels.CHANGE_AGENT),
+        setReverseRecord: () => requestOpen(sidePanels.SET_REVERSE_RECORD)
     }
 
     return { currentSidePanel, opened, visible, openPanelActions, requestOpen, endTransition, requestClose }

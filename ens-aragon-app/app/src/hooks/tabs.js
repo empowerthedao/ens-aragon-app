@@ -6,7 +6,7 @@ export function useTabs() {
         {
             index: 0,
             id: 'ENS',
-            tabName: 'Ens',
+            tabName: 'ENS',
         },
         {
             index: 1,

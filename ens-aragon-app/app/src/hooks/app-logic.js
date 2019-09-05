@@ -1,4 +1,4 @@
-import {setAgent} from "../web3/EnsContract";
+import {setAgent, setReverseRecord} from "../web3/EnsContract";
 import {useApi, useAppState} from "@aragon/api-react";
 import {useCallback} from 'react'
 import {useSidePanel} from "./side-panels";
@@ -10,6 +10,15 @@ const useSetAgentAddress = (onDone) => {
 
     return useCallback(address => {
         setAgent(api, address)
+        onDone()
+    }, [api, onDone])
+}
+
+const useSetReverseRecord = (onDone) => {
+    const api = useApi()
+
+    return useCallback(domainName => {
+        setReverseRecord(api, domainName)
         onDone()
     }, [api, onDone])
 }
@@ -29,6 +38,7 @@ export function useAppLogic() {
 
     const actions = {
         setAgentAddress: useSetAgentAddress(sidePanel.requestClose),
+        setReverseRecord: useSetReverseRecord(sidePanel.requestClose)
     }
 
     return {

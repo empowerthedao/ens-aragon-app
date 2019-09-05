@@ -42,13 +42,20 @@ function App({compactMode}) {
     const currentSidePanel = () => {
         switch (sidePanel.currentSidePanel.id) {
             case 'CHANGE_AGENT':
-                return <GenericInputPanel actionTitle={'Uniswap Action'}
+                return <GenericInputPanel actionTitle={'ENS Action'}
                                           actionDescription={`This action will change the Agent which represents an Externally
                                         Owned Account (EOA) and is responsible for interacting with the Uniswap protocol.`}
                                           inputFieldList={[
                                               {id: 1, label: 'address', type: 'text'}]}
                                           submitLabel={'Change agent'}
                                           handleSubmit={actions.setAgentAddress}/>
+            case 'SET_REVERSE_RECORD':
+                return <GenericInputPanel actionTitle={'ENS Action'}
+                                          actionDescription={`This action will set the reverse record for the agents address. SEOMTHING SMEMOTGHITGN`}
+                                          inputFieldList={[
+                                              {id: 1, label: 'domain name', type: 'text'}]}
+                                          submitLabel={'Set reverse record'}
+                                          handleSubmit={actions.setReverseRecord}/>
             default:
                 return <div/>
         }
@@ -64,14 +71,14 @@ function App({compactMode}) {
                     tabs.tabBarSelected.id === 'ENS' &&
                     <Button
                         mode="strong"
-                        onClick={() => {}}
+                        onClick={() => sidePanel.openPanelActions.setReverseRecord()}
                         css={`${compactMode && `
                             min-width: 40px;
                             padding: 0;
                             `}
                         `}
                     >
-                        {compactMode ? <img src={SwapIcon} height="30px" alt=""/> : 'Swap Eth / Tokens'}
+                        {compactMode ? <img src={SwapIcon} height="30px" alt=""/> : 'Set Reverse Record'}
                     </Button>
                 }
             />
