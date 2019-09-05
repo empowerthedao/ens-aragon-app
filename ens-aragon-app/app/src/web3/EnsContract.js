@@ -4,8 +4,9 @@ const setAgent = (api, address) => {
         .subscribe()
 }
 
-const setReverseRecord = (api, damainName) => {
-    console.log("SET REVESER RECORD")
+const setReverseRecord = (api, domainName) => {
+    api.setReverseRecord(domainName)
+        .subscribe()
 }
 
 export {

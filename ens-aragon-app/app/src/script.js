@@ -70,11 +70,11 @@ const onNewEvent = async (state, storeEvent) => {
         address: eventAddress,
     } = storeEvent
 
-    console.log("Store Event:")
-    console.log(storeEvent)
+    // console.log("Store Event:")
+    // console.log(storeEvent)
 
-    console.log("Current state:")
-    console.log(state)
+    // console.log("Current state:")
+    // console.log(state)
 
     switch (eventName) {
         case events.SYNC_STATUS_SYNCING:
@@ -101,6 +101,11 @@ const onNewEvent = async (state, storeEvent) => {
             return {
                 ...state,
                 agentAddress: await agentAddress$(api).toPromise(),
+            }
+        case 'ReverseRecordSet':
+            debugLog("REVERSE RECORD SET")
+            return {
+                ...state
             }
         default:
             return state
