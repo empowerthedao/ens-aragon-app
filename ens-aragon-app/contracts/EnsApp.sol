@@ -9,7 +9,7 @@ import "./EnsInterface.sol";
 contract EnsApp is AragonApp {
 
     /*
-    * The ENS namehash("addr.reverse")
+    * The ENS namehash/node of "addr.reverse"
     * bytes32 reverseRootNode = keccak256(abi.encodePacked(bytes32(0), keccak256(abi.encodePacked("reverse"))));
     * bytes32 reverseRecordNode = keccak256(abi.encodePacked(reverseRootNode, keccak256(abi.encodePacked("addr"))));
     */

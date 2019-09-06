@@ -1,21 +1,35 @@
 import React from "react"
 import styled from 'styled-components'
+import {Box, Button, IdentityBadge, Info, Text} from "@aragon/ui";
 
 const Ens = ({ensState}) => {
 
+    const {agentReverseRecord} = ensState
 
     return (
-        <SwapContainer>
+        <div>
+            <Box heading={"Agent Reverse Record"}>
 
-            HOLA!
+                <div css={`display: flex; flex-direction: column;`}>
 
-        </SwapContainer>
+                    <Text size="large" weight="bold">
+                        {agentReverseRecord}
+                    </Text>
+
+                    <Info css={`margin-top: 20px;`}>
+                        <strong>
+                            The reverse record is used to find an ENS domain associated with a particular address.
+                            As opposed to finding an address using an ENS domain.
+                        </strong>
+                    </Info>
+
+                </div>
+
+            </Box>
+
+        </div>
+
     )
 }
-
-const SwapContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-`
 
 export default Ens

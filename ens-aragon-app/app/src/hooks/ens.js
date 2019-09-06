@@ -1,6 +1,10 @@
+import {useAppState} from "@aragon/api-react";
 
 export function useEns() {
-    return {
 
+    const { agentReverseRecord } = useAppState()
+
+    return {
+        agentReverseRecord
     }
 }

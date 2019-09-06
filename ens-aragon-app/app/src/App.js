@@ -51,7 +51,8 @@ function App({compactMode}) {
                                           handleSubmit={actions.setAgentAddress}/>
             case 'SET_REVERSE_RECORD':
                 return <GenericInputPanel actionTitle={'ENS Action'}
-                                          actionDescription={`This action will set the reverse record for the agents address. SEOMTHING SMEMOTGHITGN`}
+                                          actionDescription={`This action will set the reverse record for the agents address,
+                                           allowing lookup of the Agent's domain name using it's address`}
                                           inputFieldList={[
                                               {id: 1, label: 'domain name', type: 'text'}]}
                                           submitLabel={'Set reverse record'}

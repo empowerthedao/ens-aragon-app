@@ -6,6 +6,7 @@ import {
     agentApp$
 } from "./web3/ExternalContracts";
 import {agentInitializationBlock$} from "./web3/AgentData";
+import {reverseRecordForAgent$} from "./web3/EnsData";
 
 const DEBUG_LOGS = true;
 const debugLog = message => {
@@ -48,7 +49,8 @@ const initialState = async (cachedInitState) => {
         return {
             ...cachedInitState,
             isSyncing: true,
-            agentAddress: await agentAddress$(api).toPromise()
+            agentAddress: await agentAddress$(api).toPromise(),
+            agentReverseRecord: await reverseRecordForAgent$(api).toPromise()
         }
     } catch (e) {
         console.error(`Script init error: ${error}`)
@@ -105,7 +107,8 @@ const onNewEvent = async (state, storeEvent) => {
         case 'ReverseRecordSet':
             debugLog("REVERSE RECORD SET")
             return {
-                ...state
+                ...state,
+                agentReverseRecord: await reverseRecordForAgent$(api).toPromise()
             }
         default:
             return state
