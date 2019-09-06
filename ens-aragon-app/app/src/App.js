@@ -32,7 +32,7 @@ function App({compactMode}) {
             case 'SETTINGS':
                 return <Settings settings={settings}
                                  handleNewAgent={() => sidePanel.openPanelActions.changeAgent()}
-                                 handleNewUniswapFactory={() => sidePanel.openPanelActions.changeUniswapFactory()}
+                                 handleNewEns={() => sidePanel.openPanelActions.changeEns()}
                                  compactMode={compactMode}/>
             default:
                 return <div/>
@@ -49,10 +49,18 @@ function App({compactMode}) {
                                               {id: 1, label: 'address', type: 'text'}]}
                                           submitLabel={'Change agent'}
                                           handleSubmit={actions.setAgentAddress}/>
+            case 'CHANGE_ENS':
+                return <GenericInputPanel actionTitle={'ENS Action'}
+                                          actionDescription={`This action will change the ENS address which stores the 
+                                          owners and resolvers of ENS domains.`}
+                                          inputFieldList={[
+                                              {id: 1, label: 'address', type: 'text'}]}
+                                          submitLabel={'Change ENS'}
+                                          handleSubmit={actions.setEnsAddress}/>
             case 'SET_REVERSE_RECORD':
                 return <GenericInputPanel actionTitle={'ENS Action'}
                                           actionDescription={`This action will set the reverse record for the agents address,
-                                           allowing lookup of the Agent's domain name using it's address`}
+                                           allowing lookup of the Agent's domain name using it's address.`}
                                           inputFieldList={[
                                               {id: 1, label: 'domain name', type: 'text'}]}
                                           submitLabel={'Set reverse record'}

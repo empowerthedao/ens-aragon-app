@@ -1,9 +1,9 @@
 {
   "name": "ENS",
   "author": "EmpowerTheDao",
-  "description": "An application for Aragon",
+  "description": "Manage an ENS domain",
   "details_url": "/meta/details.md",
-  "source_url": "https://<placeholder-repository-url>",
+  "source_url": "https://github.com/empowerthedao/ens-aragon-app",
   "icons": [
     {
       "src": "/meta/icon.svg",

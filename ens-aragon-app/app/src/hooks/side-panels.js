@@ -15,6 +15,10 @@ export function useSidePanel() {
             id: 'CHANGE_AGENT',
             title: 'Change the Agent'
         },
+        CHANGE_ENS: {
+            id: 'CHANGE_ENS',
+            title: 'Change the ENS Address'
+        },
         SET_REVERSE_RECORD: {
             id: 'SET_REVERSE_RECORD',
             title: 'Set the reverse record'
@@ -44,6 +48,7 @@ export function useSidePanel() {
 
     const openPanelActions = {
         changeAgent: () => requestOpen(sidePanels.CHANGE_AGENT),
+        changeEns: () => requestOpen(sidePanels.CHANGE_ENS),
         setReverseRecord: () => requestOpen(sidePanels.SET_REVERSE_RECORD)
     }
 

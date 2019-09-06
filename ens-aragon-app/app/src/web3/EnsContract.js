@@ -4,6 +4,11 @@ const setAgent = (api, address) => {
         .subscribe()
 }
 
+const setEnsAddress = (api, address) => {
+    api.setEns(address)
+        .subscribe()
+}
+
 const setReverseRecord = (api, domainName) => {
     api.setReverseRecord(domainName)
         .subscribe()
@@ -11,5 +16,6 @@ const setReverseRecord = (api, domainName) => {
 
 export {
     setAgent,
+    setEnsAddress,
     setReverseRecord
 }

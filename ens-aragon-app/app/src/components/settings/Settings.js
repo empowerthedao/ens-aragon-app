@@ -4,8 +4,8 @@ import {Box, Button, IdentityBadge, Text, Info} from "@aragon/ui";
 
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
-const Settings = ({handleNewAgent, settings, compactMode}) => {
-    let {agentAddress} = settings
+const Settings = ({handleNewAgent, handleNewEns, settings, compactMode}) => {
+    let {agentAddress, ensAddress} = settings
 
     return (
         <div css={`display: flex;
@@ -18,12 +18,44 @@ const Settings = ({handleNewAgent, settings, compactMode}) => {
         >
 
             <div css={`
+             flex-basis: 0;
+             flex-grow: 1; 
+             margin: 0px 10px;
+             margin-bottom: 20px;
+             ${compactMode && "width: 100%; padding-right: 20px;"}
+             `}>
+                <Box heading={"ENS Address"}>
+                    <div css={`display: flex; flex-direction: column;`}>
+                        <Text>
+                            The contract that stores the owners and resolvers of ENS domains.
+                        </Text>
+
+                        <MarginTopContainer>
+                            <IdentityBadge
+                                entity={ensAddress || ZERO_ADDRESS}
+                                shorten={compactMode}
+                            />
+                        </MarginTopContainer>
+
+
+                        <ButtonContainer>
+                            <Button mode="outline" onClick={() => handleNewEns()}>
+                                Change ENS
+                            </Button>
+                        </ButtonContainer>
+                    </div>
+                </Box>
+            </div>
+
+            <div css={`
             flex-basis: 0; 
             flex-grow: 1; 
             margin: 0px 10px; 
             margin-bottom: 20px;
+            ${compactMode && "width: 100%; padding-right: 20px;"}
+
             `}>
-                <Box heading={"Agent Address"}>
+                <Box heading={"Agent Address"} css={`flex-basis: 50%;`}>
 
                     <div css={`display: flex; flex-direction: column;`}>
                         <Text>

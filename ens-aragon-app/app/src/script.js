@@ -3,7 +3,7 @@ import Aragon, {events} from '@aragon/api'
 import retryEvery from "./lib/retry-every"
 import {
     agentAddress$,
-    agentApp$
+    agentApp$, ensAddress$
 } from "./web3/ExternalContracts";
 import {agentInitializationBlock$} from "./web3/AgentData";
 import {reverseRecordForAgent$} from "./web3/EnsData";
@@ -50,6 +50,7 @@ const initialState = async (cachedInitState) => {
             ...cachedInitState,
             isSyncing: true,
             agentAddress: await agentAddress$(api).toPromise(),
+            ensAddress: await ensAddress$(api).toPromise(),
             agentReverseRecord: await reverseRecordForAgent$(api).toPromise()
         }
     } catch (e) {
@@ -103,6 +104,12 @@ const onNewEvent = async (state, storeEvent) => {
             return {
                 ...state,
                 agentAddress: await agentAddress$(api).toPromise(),
+            }
+        case 'NewEnsSet':
+            debugLog("NEW ENS SET")
+            return {
+                ...state,
+                ensAddress: await ensAddress$(api).toPromise()
             }
         case 'ReverseRecordSet':
             debugLog("REVERSE RECORD SET")

@@ -19,6 +19,7 @@ const publicResolver = (api, address) => api.external(address, PublicResolverAbi
 
 export {
     agentAddress$,
+    ensAddress$,
     agentApp$,
     ens$,
     publicResolver

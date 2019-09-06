@@ -23,6 +23,7 @@ contract EnsApp is AragonApp {
 
     event AppInitialized();
     event NewAgentSet(address agent);
+    event NewEnsSet(address ens);
     event ReverseRecordSet(string domainName);
 
     function initialize(address _agent, address _ens) external onlyInit {
@@ -41,6 +42,15 @@ contract EnsApp is AragonApp {
     function setAgent(address _agent) external auth(SET_AGENT_ROLE) {
         agent = Agent(_agent);
         emit NewAgentSet(_agent);
+    }
+
+    /**
+    * @notice Update the ENS address to `_ens`
+    * @param _ens New ENS address
+    */
+    function setEns(address _ens) external auth(SET_AGENT_ROLE) {
+        ens = EnsInterface(_ens);
+        emit NewEnsSet(_ens);
     }
 
     /**

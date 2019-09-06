@@ -13,13 +13,13 @@ const Ens = ({ensState}) => {
                 <div css={`display: flex; flex-direction: column;`}>
 
                     <Text size="large" weight="bold">
-                        {agentReverseRecord}
+                        {agentReverseRecord || ". . ."}
                     </Text>
 
                     <Info css={`margin-top: 20px;`}>
                         <strong>
-                            The reverse record is used to find an ENS domain associated with a particular address.
-                            As opposed to finding an address using an ENS domain.
+                            The reverse record is used to find an ENS domain associated with a particular address,
+                            in this case the Agent's address.
                         </strong>
                     </Info>
 

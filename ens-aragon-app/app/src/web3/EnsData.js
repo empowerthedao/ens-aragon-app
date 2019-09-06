@@ -2,6 +2,7 @@ import {agentAddress$, ens$, publicResolver} from "./ExternalContracts";
 import namehash from 'eth-ens-namehash'
 import {zip} from "rxjs";
 import {mergeMap, map} from "rxjs/operators";
+import {onErrorReturnDefault} from "../hooks/rx-error-operators";
 
 const REVERSE_RECORD_EXTENSION = 'addr.reverse'
 
@@ -14,7 +15,8 @@ const reverseRecordForAgent$ = (api) =>
         mergeMap(([ens, agentReverseRecordNode]) => ens.resolver(agentReverseRecordNode).pipe(
             map(resolverAddress => publicResolver(api, resolverAddress)),
             mergeMap(agentReverseRecordResolver => agentReverseRecordResolver.name(agentReverseRecordNode))
-        ))
+        )),
+        onErrorReturnDefault('reverseRecordForAgent', '')
     )
 
 export {
