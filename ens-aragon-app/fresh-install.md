@@ -113,4 +113,9 @@ dao acl create <DAO-Address> <ENS-App-Proxy-Address> SET_AGENT_ROLE <Voting-App-
 
 You can now visit the DAO's Home page at `https://rinkeby.aragon.org/#/<DAO-Address>`
 
+![Screenshot from 2019-09-06 21-45-04](https://user-images.githubusercontent.com/2212651/64456100-aecde100-d0ef-11e9-86b4-5265adcbc641.png)
+
+
 You can also view the ENS App at `https://rinkeby.aragon.org/#/<DAO-Address>/<ENS-App-Proxy-Address>`
+
+![Screenshot from 2019-09-06 21-45-15](https://user-images.githubusercontent.com/2212651/64456101-b1c8d180-d0ef-11e9-87a8-28387078ecc4.png)
