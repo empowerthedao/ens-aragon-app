@@ -42,17 +42,17 @@ module.exports = async (deployer, network, accounts) => {
 
     const ens = await deployer.deploy(ENS)
 
-    const hashRegistrar = await deployer.deploy(HashRegistrar, ens.address, namehash.hash(ETH_TLD), currentBlockTime)
-    await ens.setSubnodeOwner(ROOT_NODE, sha3(ETH_TLD), HashRegistrar.address)
-
-    const baseRegistrar = await deployer.deploy(BaseRegistrar, ens.address, HashRegistrar.address, namehash.hash(ETH_TLD), currentBlockTime + 365 * DAYS)
-    await ens.setSubnodeOwner(ROOT_NODE, sha3(ETH_TLD), BaseRegistrar.address)
-
-    await deployer.deploy(SimplePriceOracle, DOMAIN_PRICE_PER_SECOND)
-
-    const controller = await deployer.deploy(ETHRegistrarController, BaseRegistrar.address, SimplePriceOracle.address, MIN_COMMITMENT_PERIOD, MAX_COMMITMENT_PERIOD)
-
-    await baseRegistrar.addController(controller.address)
+    // const hashRegistrar = await deployer.deploy(HashRegistrar, ens.address, namehash.hash(ETH_TLD), currentBlockTime)
+    // await ens.setSubnodeOwner(ROOT_NODE, sha3(ETH_TLD), HashRegistrar.address)
+    //
+    // const baseRegistrar = await deployer.deploy(BaseRegistrar, ens.address, HashRegistrar.address, namehash.hash(ETH_TLD), currentBlockTime + 365 * DAYS)
+    // await ens.setSubnodeOwner(ROOT_NODE, sha3(ETH_TLD), BaseRegistrar.address)
+    //
+    // await deployer.deploy(SimplePriceOracle, DOMAIN_PRICE_PER_SECOND)
+    //
+    // const controller = await deployer.deploy(ETHRegistrarController, BaseRegistrar.address, SimplePriceOracle.address, MIN_COMMITMENT_PERIOD, MAX_COMMITMENT_PERIOD)
+    //
+    // await baseRegistrar.addController(controller.address)
 
 
     // Deploy ReverseRegistrar
@@ -82,14 +82,14 @@ module.exports = async (deployer, network, accounts) => {
 
 
     // Set reverse record
-    const reverseRecordExtension = REVERSE_ADDR_DOMAIN + '.' + REVERSE_TLD
-    const reverseRegistrarNode = namehash.hash(subDomainOwner.slice(2).toLowerCase() + '.' + reverseRecordExtension)
-    const reverseRegistrarAddress = await ens.owner(namehash.hash(reverseRecordExtension))
-    reverseRegistrar = await ReverseRegistrar.at(reverseRegistrarAddress)
-
-    await reverseRegistrar.setName(domainName, {from: subDomainOwner})
-
-    const subDomainResolver = await PublicResolver.at(await ens.resolver(reverseRegistrarNode))
-
-    console.log(`Reverse record: ${await subDomainResolver.name(reverseRegistrarNode)}`)
+//     const reverseRecordExtension = REVERSE_ADDR_DOMAIN + '.' + REVERSE_TLD
+//     const reverseRegistrarNode = namehash.hash(subDomainOwner.slice(2).toLowerCase() + '.' + reverseRecordExtension)
+//     const reverseRegistrarAddress = await ens.owner(namehash.hash(reverseRecordExtension))
+//     reverseRegistrar = await ReverseRegistrar.at(reverseRegistrarAddress)
+//
+//     await reverseRegistrar.setName(domainName, {from: subDomainOwner})
+//
+//     const subDomainResolver = await PublicResolver.at(await ens.resolver(reverseRegistrarNode))
+//
+//     console.log(`Reverse record: ${await subDomainResolver.name(reverseRegistrarNode)}`)
 }

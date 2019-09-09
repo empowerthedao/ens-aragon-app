@@ -71,7 +71,7 @@ contract Template is TemplateBase {
         acl.createPermission(this, dao, dao.APP_MANAGER_ROLE(), this);
 
         address root = msg.sender;
-        bytes32 appId = keccak256(abi.encodePacked(apmNamehash("open"), keccak256("ensapp")));
+        bytes32 appId = keccak256(abi.encodePacked(apmNamehash("open"), keccak256("ens")));
         bytes32 votingAppId = apmNamehash("voting");
         bytes32 tokenManagerAppId = apmNamehash("token-manager");
         bytes32 agentAppId = apmNamehash("agent");
@@ -101,10 +101,7 @@ contract Template is TemplateBase {
 
         acl.createPermission(ANY_ENTITY, voting, voting.CREATE_VOTES_ROLE(), root);
 
-        acl.createPermission(address(app), agent, agent.EXECUTE_ROLE(), root);
         acl.createPermission(address(app), agent, agent.SAFE_EXECUTE_ROLE(), root);
-        acl.createPermission(address(app), agent, agent.RUN_SCRIPT_ROLE(), root);
-        acl.createPermission(address(app), agent, agent.TRANSFER_ROLE(), root);
 
         // Clean up permissions
         acl.grantPermission(root, dao, dao.APP_MANAGER_ROLE());

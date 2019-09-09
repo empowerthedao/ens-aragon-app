@@ -73,7 +73,7 @@ const Settings = ({handleNewAgent, handleNewEns, settings, compactMode}) => {
                         <MarginTopContainer>
                             <Info>
                                 <strong>
-                                    Only send funds to this address via the transfer process provided.
+                                    Only send ERC20 tokens to this address via the transfer process provided.
                                 </strong>
                             </Info>
                         </MarginTopContainer>

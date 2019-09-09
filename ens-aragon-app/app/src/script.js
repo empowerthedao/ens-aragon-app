@@ -109,7 +109,8 @@ const onNewEvent = async (state, storeEvent) => {
             debugLog("NEW ENS SET")
             return {
                 ...state,
-                ensAddress: await ensAddress$(api).toPromise()
+                ensAddress: await ensAddress$(api).toPromise(),
+                agentReverseRecord: await reverseRecordForAgent$(api).toPromise()
             }
         case 'ReverseRecordSet':
             debugLog("REVERSE RECORD SET")

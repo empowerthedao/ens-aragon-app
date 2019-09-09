@@ -16,6 +16,7 @@ contract EnsApp is AragonApp {
     bytes32 public constant reverseRecordNode = 0x91d1777781884d03a6757a803996e38de2a42967fb37eeaca72729271025a9e2;
 
     bytes32 public constant SET_AGENT_ROLE = keccak256("SET_AGENT_ROLE");
+    bytes32 public constant SET_ENS_ROLE = keccak256("SET_ENS_ROLE");
     bytes32 public constant SET_REVERSE_RECORD_ROLE = keccak256("SET_REVERSE_RECORD_ROLE");
 
     Agent public agent;
@@ -48,7 +49,7 @@ contract EnsApp is AragonApp {
     * @notice Update the ENS address to `_ens`
     * @param _ens New ENS address
     */
-    function setEns(address _ens) external auth(SET_AGENT_ROLE) {
+    function setEns(address _ens) external auth(SET_ENS_ROLE) {
         ens = EnsInterface(_ens);
         emit NewEnsSet(_ens);
     }
