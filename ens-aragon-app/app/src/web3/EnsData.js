@@ -19,7 +19,12 @@ const reverseRecordForAgent$ = (api) =>
         onErrorReturnDefault('reverseRecordForAgent', '')
     )
 
+const ownerOfNode$ = (api, node) =>
+    ens$(api).pipe(
+        mergeMap(ens => ens.owner(node)))
+
 export {
     agentReverseRecordNode$,
-    reverseRecordForAgent$
+    reverseRecordForAgent$,
+    ownerOfNode$
 }

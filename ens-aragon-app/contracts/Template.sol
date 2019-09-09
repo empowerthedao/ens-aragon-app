@@ -93,6 +93,7 @@ contract Template is TemplateBase {
 
         // Create apps permissions
         acl.createPermission(ANY_ENTITY, app, app.SET_AGENT_ROLE(), root);
+        acl.createPermission(ANY_ENTITY, app, app.SET_ENS_ROLE(), root);
         acl.createPermission(ANY_ENTITY, app, app.SET_REVERSE_RECORD_ROLE(), root);
 
         acl.createPermission(this, tokenManager, tokenManager.MINT_ROLE(), this);

@@ -60,7 +60,7 @@ const Settings = ({handleNewAgent, handleNewEns, settings, compactMode}) => {
                     <div css={`display: flex; flex-direction: column;`}>
                         <Text>
                             The contract that represents an EOA (Externally Owned Account) and acts on behalf of the
-                            Compound app.
+                            ENS app.
                         </Text>
 
                         <MarginTopContainer>

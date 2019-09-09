@@ -4,6 +4,7 @@ import {useCallback} from 'react'
 import {useSidePanel} from "./side-panels";
 import {useTabs} from "./tabs";
 import {useEns} from "./ens";
+import {useReverseRecordState} from "./reverse-record-panel";
 
 const useSetAgentAddress = (onDone) => {
     const api = useApi()
@@ -43,6 +44,8 @@ export function useAppLogic() {
     const ensState = useEns()
     const settings = {agentAddress, ensAddress}
 
+    const reverseRecordState = useReverseRecordState()
+
     const sidePanel = useSidePanel()
     const tabs = useTabs()
 
@@ -58,6 +61,7 @@ export function useAppLogic() {
         actions,
         sidePanel,
         tabs,
-        ensState
+        ensState,
+        reverseRecordState
     }
 }

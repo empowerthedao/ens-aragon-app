@@ -12,6 +12,7 @@ import GenericInputPanel from "./components/GenericInputPanel";
 import {useAppLogic} from "./hooks/app-logic";
 import SwapIcon from "./assets/swap-icon.svg"
 import Ens from "./components/ens/Ens";
+import {SetReverseRecord} from "./components/ens/side-input-panel/SetReverseRecord";
 
 function App({compactMode}) {
 
@@ -21,7 +22,8 @@ function App({compactMode}) {
         actions,
         sidePanel,
         tabs,
-        ensState
+        ensState,
+        reverseRecordState
     } = useAppLogic()
 
     const selectedTabComponent = () => {
@@ -58,13 +60,7 @@ function App({compactMode}) {
                                           submitLabel={'Change ENS'}
                                           handleSubmit={actions.setEnsAddress}/>
             case 'SET_REVERSE_RECORD':
-                return <GenericInputPanel actionTitle={'ENS Action'}
-                                          actionDescription={`This action will set the reverse record for the agents address,
-                                           allowing lookup of the Agent's domain name using it's address.`}
-                                          inputFieldList={[
-                                              {id: 1, label: 'domain name', type: 'text'}]}
-                                          submitLabel={'Set reverse record'}
-                                          handleSubmit={actions.setReverseRecord}/>
+                return <SetReverseRecord handleSetReverseRecord={actions.setReverseRecord} reverseRecordState={reverseRecordState}/>
             default:
                 return <div/>
         }
