@@ -19,6 +19,8 @@ contract EnsApp is AragonApp {
     bytes32 public constant SET_ENS_ROLE = keccak256("SET_ENS_ROLE");
     bytes32 public constant SET_REVERSE_RECORD_ROLE = keccak256("SET_REVERSE_RECORD_ROLE");
 
+    string private constant ERROR_NOT_CONTRACT = "ENS_NOT_CONTRACT";
+
     Agent public agent;
     EnsInterface public ens;
 
@@ -28,11 +30,13 @@ contract EnsApp is AragonApp {
     event ReverseRecordSet(string domainName);
 
     function initialize(address _agent, address _ens) external onlyInit {
+        require(isContract(_agent), ERROR_NOT_CONTRACT);
+        require(isContract(_ens), ERROR_NOT_CONTRACT);
+
         agent = Agent(_agent);
         ens = EnsInterface(_ens);
 
         initialized();
-
         emit AppInitialized();
     }
 
@@ -41,6 +45,8 @@ contract EnsApp is AragonApp {
     * @param _agent New Agent address
     */
     function setAgent(address _agent) external auth(SET_AGENT_ROLE) {
+        require(isContract(_agent), ERROR_NOT_CONTRACT);
+
         agent = Agent(_agent);
         emit NewAgentSet(_agent);
     }
@@ -50,6 +56,8 @@ contract EnsApp is AragonApp {
     * @param _ens New ENS address
     */
     function setEns(address _ens) external auth(SET_ENS_ROLE) {
+        require(isContract(_ens), ERROR_NOT_CONTRACT);
+
         ens = EnsInterface(_ens);
         emit NewEnsSet(_ens);
     }
