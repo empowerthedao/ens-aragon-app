@@ -39,7 +39,7 @@ const Settings = ({handleNewAgent, handleNewEns, settings, compactMode}) => {
 
 
                         <ButtonContainer>
-                            <Button mode="outline" onClick={() => handleNewEns()}>
+                            <Button onClick={() => handleNewEns()}>
                                 Change ENS
                             </Button>
                         </ButtonContainer>

@@ -36,7 +36,7 @@ const SetReverseRecord = ({handleSetReverseRecord, reverseRecordState}) => {
                     <Text color={isAgentOwner ? String(theme.positive) : String(theme.negative)}
                           size="small"
                           weight="bold">
-                        {isAgentOwner ? "The agent owns this domain" : "The agent does not own this domain"}
+                        {isAgentOwner ? "The Agent owns this domain" : "The Agent does not own this domain"}
                     </Text>}
 
                     <ButtonStyled wide mode="strong"
@@ -46,7 +46,7 @@ const SetReverseRecord = ({handleSetReverseRecord, reverseRecordState}) => {
 
                     <Info.Action title="ENS Action">
                         This action will set the reverse record for the agents address, allowing lookup of the Agent's
-                        domain name using it's address. Setting the reverse record to a domain other than one it owns
+                        domain name using it's address. Setting the reverse record to a domain other than one the Agent owns
                         will break typical usage of the reverse record for third parties.
                     </Info.Action>
                 </Container>
