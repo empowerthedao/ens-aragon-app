@@ -29,6 +29,11 @@ contract EnsApp is AragonApp {
     event NewEnsSet(address ens);
     event ReverseRecordSet(string domainName);
 
+    /**
+    * @notice Initialize the ENS App
+    * @param _agent The Agent contract address
+    * @param _ens The ENS Registry address
+    */
     function initialize(address _agent, address _ens) external onlyInit {
         require(isContract(_agent), ERROR_NOT_CONTRACT);
         require(isContract(_ens), ERROR_NOT_CONTRACT);

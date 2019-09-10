@@ -16,7 +16,7 @@ const DOMAIN_PRICE_PER_SECOND = 1
 const REVERSE_TLD = 'reverse'
 const REVERSE_ADDR_DOMAIN = 'addr'
 
-const NEW_OWNER = '0xa2242Ffc47F580c759620eE8E3090088b48662e0'
+const NEW_OWNER = '0x3917Ed74b8068486Fd95cbe15a451C21163132Ad'
 
 const advanceTime = Promise.promisify(function(delay, done) {
         web3.currentProvider.send({
@@ -49,22 +49,22 @@ module.exports = async callback => {
         await controller.commit(commitment, {from: subDomainOwner})
 
         console.log(`Wait time until registration possible (seconds): ${(await controller.minCommitmentAge()).toNumber()}`)
-        // await advanceTime((await controller.minCommitmentAge()).toNumber())
-        //
-        // console.log(`Registering domain...`)
-        // await controller.register(DOMAIN_NAME, subDomainOwner, 28 * DAYS, SECRET, {
-        //     value: 28 * DAYS + DOMAIN_PRICE_PER_SECOND,
-        //     from: subDomainOwner
-        // })
-        //
-        // const domainName = DOMAIN_NAME + '.' + ETH_TLD
-        // const domainNode = namehash.hash(domainName)
-        // console.log(`Registered ${domainName} with owner: ${await ens.owner(domainNode)}\n`)
-        //
+        await advanceTime((await controller.minCommitmentAge()).toNumber())
+
+        console.log(`Registering domain...`)
+        await controller.register(DOMAIN_NAME, subDomainOwner, 28 * DAYS, SECRET, {
+            value: 28 * DAYS + DOMAIN_PRICE_PER_SECOND,
+            from: subDomainOwner
+        })
+
+        const domainName = DOMAIN_NAME + '.' + ETH_TLD
+        const domainNode = namehash.hash(domainName)
+        console.log(`Registered ${domainName} with owner: ${await ens.owner(domainNode)}\n`)
+
         // Transfer ownership
-        // console.log(`Transferring ownership of ${domainName}...`)
-        // await ens.setOwner(domainNode, NEW_OWNER, {from: subDomainOwner})
-        // console.log(`Transferred ownership of ${domainName} to: ${await ens.owner(domainNode)}`)
+        console.log(`Transferring ownership of ${domainName}...`)
+        await ens.setOwner(domainNode, NEW_OWNER, {from: subDomainOwner})
+        console.log(`Transferred ownership of ${domainName} to: ${await ens.owner(domainNode)}`)
 
 
         // Set reverse record
