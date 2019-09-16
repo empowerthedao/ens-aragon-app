@@ -1,6 +1,15 @@
 # ENS Aragon App
 
-Aragon app for a DAO to interact with the ENS.
+An Aragon app using the [Aragon Agent](https://github.com/aragon/aragon-apps/tree/master/apps/agent) enabling a DAO to 
+interact with the [ENS protocol](https://ens.domains/). 
 
-Follow these [instructions to install the ENS protocol locally](https://github.com/empowerthedao/ens-aragon-app/tree/master/ens-protocol).
+The current functionality allows the Agent app installed into the app to set it's reverse record on the Ethereum Name Service.
 
+#### :rotating_light: Security review status: pre-audit  
+The code in this repo has not been audited.
+
+[Instructions for local deployment]()
+for development purposes.
+
+[Instructions for live net installation](https://github.com/empowerthedao/ens-aragon-app/blob/master/ens-aragon-app/fresh-install.md)
+for end user usage. 
