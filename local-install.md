@@ -52,7 +52,7 @@ $ truffle exec scripts/registerAndTransfer.js
  
 ## ENS Aragon App Deployment
 
-Execute the following within the `ens-aragon-app` directory.
+Execute the following within the `ens-aragon-app/ens-aragon-app` directory.
 
 Install dependencies:
 ```
