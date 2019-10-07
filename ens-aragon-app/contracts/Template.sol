@@ -22,6 +22,7 @@ import "@aragon/apps-shared-minime/contracts/MiniMeToken.sol";
 import "@aragon/apps-agent/contracts/Agent.sol";
 
 import "./EnsApp.sol";
+import "./EnsInterface.sol";
 
 
 contract TemplateBase is APMNamehash {
@@ -55,12 +56,12 @@ contract TemplateBase is APMNamehash {
 contract Template is TemplateBase {
     MiniMeTokenFactory tokenFactory;
     address[] enabledTokens;
-    address appEns;
+    EnsInterface appEns;
 
     uint64 constant PCT = 10 ** 16;
     address constant ANY_ENTITY = address(-1);
 
-    constructor(ENS ens, address _appEns) TemplateBase(DAOFactory(0), ens) public {
+    constructor(ENS ens, EnsInterface _appEns) TemplateBase(DAOFactory(0), ens) public {
         tokenFactory = new MiniMeTokenFactory();
         appEns = _appEns;
     }
@@ -85,7 +86,7 @@ contract Template is TemplateBase {
         token.changeController(tokenManager);
 
         // Initialize apps
-        app.initialize(address(agent), appEns);
+        app.initialize(agent, appEns);
 
         tokenManager.initialize(token, true, 0);
         voting.initialize(token, 50 * PCT, 20 * PCT, 1 days);
