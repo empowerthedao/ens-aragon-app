@@ -8,6 +8,8 @@ The current functionality allows the Agent app installed into the app to set it'
 #### :rotating_light: Security review status: pre-audit  
 The code in this repo has not been audited.
 
+## Deployment Instructions
+
 [Instructions for local deployment](https://github.com/empowerthedao/ens-aragon-app/blob/master/local-install.md)
 for development purposes.
 
