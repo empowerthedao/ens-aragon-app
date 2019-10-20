@@ -23,7 +23,8 @@ contract EnsApp is AragonApp {
     bytes32 public constant SET_ENS_ROLE = 0x6b5974c0d18cae1ec1fd711803ca26d89e67ec8149583d45687d8d30583a8512;
     bytes32 public constant SET_REVERSE_RECORD_ROLE = 0xc09a52c5ad7fc39d62ecde55286fc9d601355c6ff768ff16301240f741290090;
 
-    string private constant ERROR_NOT_CONTRACT = "ENS_NOT_CONTRACT";
+    string private constant ERROR_AGENT_NOT_CONTRACT = "ENS_AGENT_NOT_CONTRACT";
+    string private constant ERROR_ENS_NOT_CONTRACT = "ENS_ENS_NOT_CONTRACT";
 
     Agent public agent;
     EnsInterface public ens;
@@ -31,7 +32,7 @@ contract EnsApp is AragonApp {
     event AppInitialized();
     event NewAgentSet(address agent);
     event NewEnsSet(address ens);
-    event ReverseRecordSet(string domainName);
+    event ReverseRecordSet(string domainName, address agent);
 
     /**
     * @notice Initialize the ENS App
@@ -39,8 +40,8 @@ contract EnsApp is AragonApp {
     * @param _ens The ENS Registry address
     */
     function initialize(Agent _agent, EnsInterface _ens) external onlyInit {
-        require(isContract(address(_agent)), ERROR_NOT_CONTRACT);
-        require(isContract(address(_ens)), ERROR_NOT_CONTRACT);
+        require(isContract(address(_agent)), ERROR_AGENT_NOT_CONTRACT);
+        require(isContract(address(_ens)), ERROR_ENS_NOT_CONTRACT);
 
         agent = _agent;
         ens = _ens;
@@ -54,7 +55,7 @@ contract EnsApp is AragonApp {
     * @param _agent New Agent address
     */
     function setAgent(Agent _agent) external auth(SET_AGENT_ROLE) {
-        require(isContract(address(_agent)), ERROR_NOT_CONTRACT);
+        require(isContract(address(_agent)), ERROR_AGENT_NOT_CONTRACT);
 
         agent = _agent;
         emit NewAgentSet(address(_agent));
@@ -65,7 +66,7 @@ contract EnsApp is AragonApp {
     * @param _ens New ENS address
     */
     function setEns(EnsInterface _ens) external auth(SET_ENS_ROLE) {
-        require(isContract(address(_ens)), ERROR_NOT_CONTRACT);
+        require(isContract(address(_ens)), ERROR_ENS_NOT_CONTRACT);
 
         ens = _ens;
         emit NewEnsSet(address(_ens));
@@ -73,7 +74,7 @@ contract EnsApp is AragonApp {
 
     /**
     * @notice Set the ENS reverse record for the Agent to `_domainName`
-    * @param _domainName New Agent address
+    * @param _domainName Agent owned domain name
     */
     function setReverseRecord(string _domainName) external auth(SET_REVERSE_RECORD_ROLE) {
         address reverseRegistrarAddress = ens.owner(reverseRecordNode);
@@ -82,7 +83,7 @@ contract EnsApp is AragonApp {
 
         agent.safeExecute(reverseRegistrarAddress, encodedFunctionCall);
 
-        emit ReverseRecordSet(_domainName);
+        emit ReverseRecordSet(_domainName, address(agent));
     }
 
 }
