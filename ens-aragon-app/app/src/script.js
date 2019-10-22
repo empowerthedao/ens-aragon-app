@@ -8,7 +8,7 @@ import {
 import {agentInitializationBlock$} from "./web3/AgentData";
 import {reverseRecordForAgent$} from "./web3/EnsData";
 
-const DEBUG_LOGS = true;
+const DEBUG_LOGS = false;
 const debugLog = message => {
     if (DEBUG_LOGS) {
         console.debug(message)
