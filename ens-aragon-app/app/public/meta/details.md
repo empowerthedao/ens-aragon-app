@@ -4,5 +4,3 @@ settings tab.
 
 ## Features
 - Set the reverse record for the app's Agent.
-- Change the ENS registry.
-- Change the Agent.
