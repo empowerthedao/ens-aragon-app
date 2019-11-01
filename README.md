@@ -5,8 +5,8 @@ interact with the [ENS protocol](https://ens.domains/).
 
 The current functionality allows the Agent app installed into the app to set it's reverse record on the Ethereum Name Service.
 
-#### :rotating_light: Security review status: pre-audit  
-The code in this repo has not been audited.
+#### :white_check_mark: Security review status: Audited  
+The Solidity code in this repo has been audited, see [the report](https://github.com/empowerthedao/ens-aragon-app/tree/master/audit).
 
 ## Deployment Instructions
 
