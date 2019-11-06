@@ -119,3 +119,11 @@ You can now visit the DAO's Home page at `https://rinkeby.aragon.org/#/<DAO-Addr
 You can also view the ENS App at `https://rinkeby.aragon.org/#/<DAO-Address>/<ENS-App-Proxy-Address>`
 
 ![Screenshot from 2019-09-06 21-45-15](https://user-images.githubusercontent.com/2212651/64456101-b1c8d180-d0ef-11e9-87a8-28387078ecc4.png)
+
+### Installing in Mainnet
+
+To run this script on Ethereum Mainnet, you will need to replace all instances of `aragon:rinkeby` with `aragon:mainnet`. This will also require your copy of the `aragoncli` to be configured to operate on mainnet.
+
+In addition, you will need to use different hex addresses for contracts used on Ethereum mainnet.
+
+For `<ENS-Interface-Address>`, you can use `0x314159265dd8dbb310642f98f50c066173c1259b` which is the [address for the official ENS interface](https://etherscan.io/address/0x314159265dd8dbb310642f98f50c066173c1259b) on Mainnet, as per [ENS documentation](https://docs.ens.domains/ens-deployments).
