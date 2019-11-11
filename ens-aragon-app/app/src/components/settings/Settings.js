@@ -59,8 +59,8 @@ const Settings = ({handleNewAgent, handleNewEns, settings, compactMode}) => {
 
                     <div css={`display: flex; flex-direction: column;`}>
                         <Text>
-                            The contract that represents an EOA (Externally Owned Account) and acts on behalf of the
-                            ENS app.
+                            The Aragon Agent contract instance that the ENS app uses to interact with
+                            ENS.
                         </Text>
 
                         <MarginTopContainer>
@@ -68,14 +68,6 @@ const Settings = ({handleNewAgent, handleNewEns, settings, compactMode}) => {
                                 entity={agentAddress || ZERO_ADDRESS}
                                 shorten={compactMode}
                             />
-                        </MarginTopContainer>
-
-                        <MarginTopContainer>
-                            <Info>
-                                <strong>
-                                    Only send ERC20 tokens to this address via the transfer process provided.
-                                </strong>
-                            </Info>
                         </MarginTopContainer>
 
                         <ButtonContainer>

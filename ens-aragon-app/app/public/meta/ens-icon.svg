@@ -1,0 +1,42 @@
+<svg width="95" height="95" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <defs>
+  <linearGradient y2="1" x2="1" y1="0" x1="0" id="svg_26">
+   <stop offset="0" stop-color="#91ffcb"/>
+   <stop offset="1" stop-color="#ddffee"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="url(#svg_26)" id="canvas_background" height="97" width="97" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <defs>
+   <style>.cls-3{fill:#a0a8d4}</style>
+   <linearGradient y2="0.866279" x2="-0.047041" y1="0.024577" x1="1.036894" id="svg_10">
+    <stop stop-color="#a0a8d4" offset="0.58"/>
+    <stop stop-color="#8791c7" offset="0.73"/>
+    <stop stop-color="#6470b4" offset="0.91"/>
+   </linearGradient>
+   <linearGradient xlink:href="#svg_10" y2="49.81" x2="71.96" y1="81.66" x1="42.57" id="svg_9"/>
+   <linearGradient y2="1.003088" x2="0.499969" y1="-0.004941" x1="0.499969" id="svg_8">
+    <stop stop-color="#513eff" offset="0"/>
+    <stop stop-color="#5157ff" offset="0.18"/>
+    <stop stop-color="#5298ff" offset="0.57"/>
+    <stop stop-color="#52e5ff" offset="1"/>
+   </linearGradient>
+  </defs>
+  <g stroke="null" id="svg_18">
+   <g stroke="null" id="svg_12">
+    <g stroke="null" id="svg_7">
+     <path stroke="null" id="svg_13" fill="url(#svg_10)" d="m20.269996,40.159768c0.8,1.71 2.78,5.09 2.78,5.09l22.89,-37.84l-22.34,15.6a9.75,9.75 0 0 0 -3.18,3.5a16.19,16.19 0 0 0 -0.15,13.65z"/>
+     <path stroke="null" id="svg_14" d="m11.199996,52.619768a25.47,25.47 0 0 0 10,18.51l24.71,17.23s-15.46,-22.28 -28.5,-44.45a22.39,22.39 0 0 1 -2.62,-7.56a12.1,12.1 0 0 1 0,-3.63c-0.34,0.63 -1,1.92 -1,1.92a29.35,29.35 0 0 0 -2.67,8.55a52.28,52.28 0 0 0 0.08,9.43z" class="cls-3"/>
+     <path stroke="null" id="svg_15" fill="url(#svg_9)" d="m74.239996,55.609768c-0.8,-1.71 -2.78,-5.09 -2.78,-5.09l-22.89,37.84l22.34,-15.59a9.75,9.75 0 0 0 3.18,-3.5a16.19,16.19 0 0 0 0.15,-13.66z"/>
+     <path stroke="null" id="svg_16" d="m83.309996,43.149768a25.47,25.47 0 0 0 -10,-18.51l-24.71,-17.23s15.45,22.28 28.5,44.45a22.39,22.39 0 0 1 2.61,7.56a12.1,12.1 0 0 1 0,3.63c0.34,-0.63 1,-1.92 1,-1.92a29.35,29.35 0 0 0 2.67,-8.55a52.28,52.28 0 0 0 -0.07,-9.43z" class="cls-3"/>
+     <path stroke="null" id="svg_17" fill="url(#svg_8)" d="m20.419996,26.509768a9.75,9.75 0 0 1 3.18,-3.5l22.34,-15.6l-22.89,37.85s-2,-3.38 -2.78,-5.09a16.19,16.19 0 0 1 0.15,-13.66zm-9.22,26.11a25.47,25.47 0 0 0 10,18.51l24.71,17.23s-15.46,-22.28 -28.5,-44.45a22.39,22.39 0 0 1 -2.62,-7.56a12.1,12.1 0 0 1 0,-3.63c-0.34,0.63 -1,1.92 -1,1.92a29.35,29.35 0 0 0 -2.67,8.55a52.28,52.28 0 0 0 0.08,9.43zm63,3c-0.8,-1.71 -2.78,-5.09 -2.78,-5.09l-22.85,37.83l22.34,-15.59a9.75,9.75 0 0 0 3.18,-3.5a16.19,16.19 0 0 0 0.15,-13.66l-0.04,0.01zm9.07,-12.46a25.47,25.47 0 0 0 -10,-18.51l-24.67,-17.24s15.45,22.28 28.5,44.45a22.39,22.39 0 0 1 2.61,7.56a12.1,12.1 0 0 1 0,3.63c0.34,-0.63 1,-1.92 1,-1.92a29.35,29.35 0 0 0 2.67,-8.55a52.28,52.28 0 0 0 -0.07,-9.43l-0.04,0.01z"/>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

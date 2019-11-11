@@ -6,7 +6,7 @@
   "source_url": "https://github.com/empowerthedao/ens-aragon-app",
   "icons": [
     {
-      "src": "public/meta/icon.svg",
+      "src": "public/meta/ens-icon.svg",
       "sizes": "56x56"
     }
   ],
