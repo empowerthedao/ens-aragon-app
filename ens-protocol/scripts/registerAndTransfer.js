@@ -16,7 +16,7 @@ const DOMAIN_PRICE_PER_SECOND = 1
 const REVERSE_TLD = 'reverse'
 const REVERSE_ADDR_DOMAIN = 'addr'
 
-const NEW_OWNER = '0xa738bb4d1BF71F02C33e5b5C99779203d629004B'
+const NEW_OWNER = '0x2645Ec9C87e8e2f19b9b8C65AA31dBfA4386e504'
 
 const advanceTime = Promise.promisify(function(delay, done) {
         web3.currentProvider.send({
